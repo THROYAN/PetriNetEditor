@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Petri_Net_Editor.App.Models.MarkedPetriGraph" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAIAA=</HashCode>
+      <FileName>App\Models\MarkedPetriGraph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Petri_Net_Editor.App.Models.PetriNet">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAABAAAAAAA=</HashCode>
+      <FileName>App\Models\PetriNet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Petri_Net_Editor.App.Models.PetriNetGraph" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIAAAAABAAAAAAAAAAABAIAAgAAAQAAAAA=</HashCode>
+      <FileName>App\Models\PetriNetGraph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Petri_Net_Editor.App.Models.MarkedPlace" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Models\MarkedPlace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Petri_Net_Editor.App.Models.Place" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\Models\Place.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Petri_Net_Editor.App.Models.Transition" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAABAQAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>App\Models\Transition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MagicLibrary.MathUtils.Graphs.Vertex" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MagicLibrary.MathUtils.Graphs.WeightedBiGraph" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MagicLibrary.MathUtils.Graphs.WeightedArc" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

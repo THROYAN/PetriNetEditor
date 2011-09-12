@@ -1,0 +1,62 @@
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\ResolveAssemblyReference.cache
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.Properties.Resources.resources
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.read.1.tlog
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.write.1.tlog
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.exe
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.pdb
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.exe
+j:\users\krasun\documents\visual studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.pdb
+J:\Users\krasun\Documents\Visual Studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.dll
+J:\Users\krasun\Documents\Visual Studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.pdb
+J:\Users\krasun\Documents\Visual Studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.PetriGraphEditorView.resources
+J:\Users\krasun\Documents\Visual Studio 2010\Projects\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.GraphEditView.resources
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.pdb
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.exe
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.pdb
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.dll
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.pdb
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.PetriGraphEditorView.resources
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.GraphEditView.resources
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.Properties.Resources.resources
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\THROYAN\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.exe
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.exe
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.pdb
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.exe
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.pdb
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\GraphEditor.exe
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.dll
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\GraphEditor.pdb
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.pdb
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\ResolveAssemblyReference.cache
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.PetriGraphEditorView.resources
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.Properties.Resources.resources
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.read.1.tlog
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.exe
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri Net Editor.pdb
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.exe
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\bin\Debug\Petri Net Editor.pdb
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\bin\Debug\GraphEditor.exe
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.dll
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\bin\Debug\GraphEditor.pdb
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\bin\Debug\Library.pdb
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.PetriGraphEditorView.resources
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.Properties.Resources.resources
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\общие\THROYANprojects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.MarkedPetriGraphEditorView.resources
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.MarkedPetriGraphEditorView.resources
+J:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.PetriNetConstructor.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.MarkedPetriNetGraphCounstructor.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.MarkedPetriGraphEditFormView.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.PetriGraphEditFormView.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.MarkedPlaceModifyForm.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.App.Views.TransitionModifyForm.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\Petri_Net_Editor.Properties.Resources.resources
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\THROYAN projects\Petri Net Editor\Petri Net Editor\obj\x86\Debug\GenerateResource.write.1.tlog

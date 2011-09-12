@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{717B90B3-4E77-4F69-A130-220A85BC27F3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Petri_Net_Editor</RootNamespace>
+    <AssemblyName>Petri Net Editor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\Controllers\MarkedPetriGraphEditorController.cs" />
+    <Compile Include="App\Controllers\MarkedPetriNetEditFormController.cs" />
+    <Compile Include="App\Controllers\PetriGraphEditorController.cs" />
+    <Compile Include="App\Controllers\PetriNetGraphEditFormController.cs" />
+    <Compile Include="App\Models\Wrappers\MarkedPetriNetGraphWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\PetriNetGraphWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\MarkedPlaceWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\PlaceWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\TransitionWrapper.cs" />
+    <Compile Include="App\Views\MarkedPetriNetGraphCounstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\MarkedPetriNetGraphCounstructorForm.Designer.cs">
+      <DependentUpon>MarkedPetriNetGraphCounstructorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\MarkedPetriGraphEditFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\MarkedPetriNetGraphEditView.cs" />
+    <Compile Include="App\Views\PetriGraphEditFormView.designer.cs">
+      <DependentUpon>PetriGraphEditFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\PetriGraphEditFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\PetriNetGraphEditView.cs" />
+    <Compile Include="App\Views\MarkedPlaceModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\MarkedPlaceModifyForm.Designer.cs">
+      <DependentUpon>MarkedPlaceModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\TransitionModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\TransitionModifyForm.Designer.cs">
+      <DependentUpon>TransitionModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="App\Views\MarkedPetriNetGraphCounstructorForm.resx">
+      <DependentUpon>MarkedPetriNetGraphCounstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\MarkedPetriGraphEditFormView.resx">
+      <DependentUpon>MarkedPetriGraphEditFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\PetriGraphEditFormView.resx">
+      <DependentUpon>PetriGraphEditFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\MarkedPlaceModifyForm.resx">
+      <DependentUpon>MarkedPlaceModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\TransitionModifyForm.resx">
+      <DependentUpon>TransitionModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GraphEditor\GraphEditor.csproj">
+      <Project>{053E5B57-72F4-4C55-93C0-7D5BAE8BE9D6}</Project>
+      <Name>GraphEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\MagicLibrary.csproj">
+      <Project>{5A79E429-A2BC-4B1E-8DCD-B9C9173A064C}</Project>
+      <Name>MagicLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\Models\_Stuff\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
