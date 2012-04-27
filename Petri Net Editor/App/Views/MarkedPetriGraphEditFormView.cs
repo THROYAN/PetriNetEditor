@@ -105,7 +105,7 @@ namespace Petri_Net_Editor.App.Views
 
         void item2_Click(object sender, EventArgs e)
         {
-            selectedGraph.marks = -1;
+            selectedGraph.marks = 0;
             selectedGraph.action = GraphEditor.App.Views.GraphEditActions.SomethingElse;
             selectedGraph.executeState = PetriNetExecuteState.EditGraph;
         }

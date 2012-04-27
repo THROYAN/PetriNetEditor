@@ -17,9 +17,9 @@ namespace Petri_Net_Editor.App.Views
     public class MarkedPetriNetGraphEditView : PetriNetGraphEditView
     {
         public PetriNetExecuteState executeState { get; set; }
-        public PetriNet petriNet { get; set; }
+        public ColouredPetriNet petriNet { get; set; }
 
-        public int marks { get; set; }
+        public uint marks { get; set; }
         public MarkedPetriNetGraphWrapper mPetriGraph { get { return graphWrapper as MarkedPetriNetGraphWrapper; } }
         public new MarkedPetriGraphEditorController MainController { get { return GetController("MainController") as MarkedPetriGraphEditorController; } }
         public Timer timer { get; set; }

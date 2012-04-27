@@ -30,10 +30,10 @@ namespace Petri_Net_Editor.App.Models.Wrappers
             base.Draw(g, p, m);
 
             #region Вывод фишек
-            if (mPlace.TokenCount > 5)
+            if (mPlace.TokensCount > 5)
             {
                 g.DrawString(
-                    mPlace.TokenCount.ToString(),
+                    mPlace.TokensCount.ToString(),
                     new Font("Arial", 8),
                     Brushes.Blue,
                     m * this.Center,
@@ -46,7 +46,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
             }
             else
             {
-                if (mPlace.TokenCount > 0)
+                if (mPlace.TokensCount > 0)
                 {
                     MGraphic.DrawFillEllipse(
                         g,
@@ -66,7 +66,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                     //    TokenSize.Height
                     //);
                 }
-                if (mPlace.TokenCount > 1)
+                if (mPlace.TokensCount > 1)
                 {
                     MGraphic.DrawFillEllipse(
                         g,
@@ -78,7 +78,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         m
                     );
                 }
-                if (mPlace.TokenCount > 2)
+                if (mPlace.TokensCount > 2)
                 {
                     MGraphic.DrawFillEllipse(
                         g,
@@ -90,7 +90,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         m
                     );
                 }
-                if (mPlace.TokenCount > 3)
+                if (mPlace.TokensCount > 3)
                 {
                     MGraphic.DrawFillEllipse(
                         g,
@@ -102,7 +102,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         m
                     );
                 }
-                if (mPlace.TokenCount > 4)
+                if (mPlace.TokensCount > 4)
                 {
                     MGraphic.DrawFillEllipse(
                         g,
@@ -122,10 +122,10 @@ namespace Petri_Net_Editor.App.Models.Wrappers
         {
             base.Draw(g, p);
             #region Вывод фишек
-            if (mPlace.TokenCount > 5)
+            if (mPlace.TokensCount > 5)
             {
                 g.DrawString(
-                    mPlace.TokenCount.ToString(),
+                    mPlace.TokensCount.ToString(),
                     new Font("Arial", 8),
                     Brushes.Blue,
                     Rectangle,
@@ -138,7 +138,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
             }
             else
             {
-                if (mPlace.TokenCount > 0)
+                if (mPlace.TokensCount > 0)
                 {
                     g.FillEllipse(
                         Brushes.Black,
@@ -148,7 +148,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         TokenSize.Height
                     );
                 }
-                if (mPlace.TokenCount > 1)
+                if (mPlace.TokensCount > 1)
                 {
                     g.FillEllipse(
                         Brushes.Black,
@@ -158,7 +158,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         TokenSize.Height
                     );
                 }
-                if (mPlace.TokenCount > 2)
+                if (mPlace.TokensCount > 2)
                 {
                     g.FillEllipse(
                         Brushes.Black,
@@ -168,7 +168,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         TokenSize.Height
                     );
                 }
-                if (mPlace.TokenCount > 3)
+                if (mPlace.TokensCount > 3)
                 {
                     g.FillEllipse(
                         Brushes.Black,
@@ -178,7 +178,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
                         TokenSize.Height
                     );
                 }
-                if (mPlace.TokenCount > 4)
+                if (mPlace.TokensCount > 4)
                 {
                     g.FillEllipse(
                         Brushes.Black,

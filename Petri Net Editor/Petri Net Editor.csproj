@@ -25,7 +25,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.2.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -60,7 +60,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -80,11 +80,25 @@
     <Compile Include="App\Controllers\MarkedPetriNetEditFormController.cs" />
     <Compile Include="App\Controllers\PetriGraphEditorController.cs" />
     <Compile Include="App\Controllers\PetriNetGraphEditFormController.cs" />
+    <Compile Include="App\Models\Wrappers\ColouredPetriGraphWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\ColouredPlaceWrapper.cs" />
     <Compile Include="App\Models\Wrappers\MarkedPetriNetGraphWrapper.cs" />
     <Compile Include="App\Models\Wrappers\PetriNetGraphWrapper.cs" />
     <Compile Include="App\Models\Wrappers\MarkedPlaceWrapper.cs" />
     <Compile Include="App\Models\Wrappers\PlaceWrapper.cs" />
     <Compile Include="App\Models\Wrappers\TransitionWrapper.cs" />
+    <Compile Include="App\Views\ColouredPlaceModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\ColouredPlaceModifyForm.Designer.cs">
+      <DependentUpon>ColouredPlaceModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\ColouredPetriGraphCounstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\ColouredPetriGraphCounstructorForm.Designer.cs">
+      <DependentUpon>ColouredPetriGraphCounstructorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\Views\MarkedPetriNetGraphCounstructorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +130,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="App\Views\ColouredPlaceModifyForm.resx">
+      <DependentUpon>ColouredPlaceModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\ColouredPetriGraphCounstructorForm.resx">
+      <DependentUpon>ColouredPetriGraphCounstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="App\Views\MarkedPetriNetGraphCounstructorForm.resx">
       <DependentUpon>MarkedPetriNetGraphCounstructorForm.cs</DependentUpon>
     </EmbeddedResource>

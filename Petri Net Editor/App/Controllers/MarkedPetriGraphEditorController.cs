@@ -27,7 +27,7 @@ namespace Petri_Net_Editor.App.Controllers
 
         public MarkedPetriNetGraphEditView geView { get { return View as MarkedPetriNetGraphEditView; } }
 
-        public void ChangeMarks(PointF coords, int delta)
+        public void ChangeMarks(PointF coords, uint delta)
         {
             GraphEditor.App.Models.IVertexWrapper vw = GetSelectedVertex(coords);
             if (vw == null)
@@ -35,15 +35,16 @@ namespace Petri_Net_Editor.App.Controllers
             IVertex v = vw.Vertex;
             if (v is MarkedPlace)
             {
-                (v as MarkedPlace).TokenCount += delta;
+#warning !!!!!!!!!!!!!!!!!!!!!!!!!
+                //(v as MarkedPlace).SetTokenCount(delta);
             }
         }
 
         public new void ViewLoad()
         {
             base.ViewLoad();
-            geView.graphWrapper = new MarkedPetriNetGraphWrapper() { DefaultTransitionSize = new Size(2, 20) };
-            geView.petriNet = new PetriNet(geView.graphWrapper.Graph as MarkedPetriGraph);
+            geView.graphWrapper = new ColouredPetriGraphWrapper() { DefaultTransitionSize = new Size(2, 20) };
+            geView.petriNet = new ColouredPetriNet(geView.graphWrapper.Graph as ColouredPetriGraph);
         }
 
         public override void DoSomethingElse(PointF coords)
@@ -90,7 +91,7 @@ namespace Petri_Net_Editor.App.Controllers
         public override bool OpenGraph(string path)
         {
             var f = base.OpenGraph(path);
-            geView.petriNet = new PetriNet(geView.graphWrapper.Graph as MarkedPetriGraph);
+            geView.petriNet = new ColouredPetriNet(geView.graphWrapper.Graph as ColouredPetriGraph);
             return f;
         }
     }
