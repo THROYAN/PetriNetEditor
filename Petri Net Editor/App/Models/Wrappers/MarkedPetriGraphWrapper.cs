@@ -11,18 +11,18 @@ using GraphEditor.App.Models;
 namespace Petri_Net_Editor.App.Models.Wrappers
 {
     [Serializable]
-    public class MarkedPetriNetGraphWrapper : PetriNetGraphWrapper
+    public class MarkedPetriGraphWrapper : PetriNetGraphWrapper
     {
         public MarkedPetriGraph markedPetriGraph { get { return Graph as MarkedPetriGraph; } }
 
-        public MarkedPetriNetGraphWrapper() : base()
+        public MarkedPetriGraphWrapper() : base()
         {
             Graph = new MarkedPetriGraph();
 
-            MarkedPetriNetGraphWrapper.SetDefaultEventHandlers(this);
+            MarkedPetriGraphWrapper.SetDefaultEventHandlers(this);
         }
 
-        public static void SetDefaultEventHandlers(MarkedPetriNetGraphWrapper gWrapper)
+        public static void SetDefaultEventHandlers(MarkedPetriGraphWrapper gWrapper)
         {
             PetriNetGraphWrapper.SetDefaultEventHandlers(gWrapper);
 
@@ -52,12 +52,12 @@ namespace Petri_Net_Editor.App.Models.Wrappers
         {
             base.CopyTo(graphWrapper);
 
-            MarkedPetriNetGraphWrapper.SetDefaultEventHandlers(graphWrapper as MarkedPetriNetGraphWrapper);
+            MarkedPetriGraphWrapper.SetDefaultEventHandlers(graphWrapper as MarkedPetriGraphWrapper);
         }
 
         public override object Clone()
         {
-            MarkedPetriNetGraphWrapper mpWrapper = new MarkedPetriNetGraphWrapper();
+            MarkedPetriGraphWrapper mpWrapper = new MarkedPetriGraphWrapper();
 
             this.CopyTo(mpWrapper);
 
