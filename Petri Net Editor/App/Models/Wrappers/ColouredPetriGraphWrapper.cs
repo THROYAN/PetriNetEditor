@@ -13,14 +13,22 @@ using Petri_Net_Editor.App.Views;
 
 namespace Petri_Net_Editor.App.Models.Wrappers
 {
+    [Serializable]
     public class ColouredPetriGraphWrapper : PetriNetGraphWrapper
     {
+        public List<Tuple<string, string, string>> ColorsDescription { get; set; }
+        public List<Tuple<string, string>> VariablesDescription { get; set; }
+        public List<string> FunctionsDescription { get; set; }
+
         public ColouredPetriGraphWrapper()
             : base()
         {
             this.Graph = new ColouredPetriGraph();
             DefaultPlaceSize = base.DefaultVertexSize;
             DefaultTransitionSize = base.DefaultVertexSize;
+            this.ColorsDescription = new List<Tuple<string,string,string>>();
+            this.VariablesDescription = new List<Tuple<string, string>>();
+            this.FunctionsDescription = new List<string>();
 
             ColouredPetriGraphWrapper.SetDefaultEventHandlers(this);
         }
@@ -30,20 +38,34 @@ namespace Petri_Net_Editor.App.Models.Wrappers
             PetriNetGraphWrapper.SetDefaultEventHandlers(graphWrapper);
 
             graphWrapper.Graph.OnVertexAdded += new EventHandler<VerticesModifiedEventArgs>(graphWrapper.Graph_OnVertexAdded);
+            graphWrapper.Graph.OnEdgeAdded += new EventHandler<EdgesModifiedEventArgs>(graphWrapper.Graph_OnEdgeAdded);
+        }
+
+        private void Graph_OnEdgeAdded(object sender, EdgesModifiedEventArgs e)
+        {
+            if (e.Status == ModificationStatus.Successful)
+            {
+                WFArcWrapper last = this.ArcWrappers.Last() as WFArcWrapper;
+                this.ArcWrappers.Add(new ColouredArcWrapper(this, e.Edge as ColouredArc) { Points = this.currentPoints });
+                this.ArcWrappers.Remove(last);
+            }
         }
 
         private void Graph_OnVertexAdded(object sender, VerticesModifiedEventArgs e)
         {
-            WFVertexWrapper last = VertexWrappers.Last() as WFVertexWrapper;
-            if (e.Vertex is Transition)
+            if (e.Status == ModificationStatus.Successful)
             {
-                VertexWrappers.Add(new TransitionWrapper(this, e.Vertex as Transition) { Coords = last.Coords, SizeF = DefaultTransitionSize });
+                WFVertexWrapper last = VertexWrappers.Last() as WFVertexWrapper;
+                if (e.Vertex is ColouredTransition)
+                {
+                    VertexWrappers.Add(new ColouredTransitionWrapper(this, e.Vertex as ColouredTransition) { Coords = last.Coords, SizeF = DefaultTransitionSize });
+                }
+                if (e.Vertex is ColouredPlace)
+                {
+                    VertexWrappers.Add(new ColouredPlaceWrapper(this, e.Vertex as ColouredPlace) { Coords = last.Coords, SizeF = DefaultPlaceSize });
+                }
+                VertexWrappers.Remove(last);
             }
-            if (e.Vertex is ColouredPlace)
-            {
-                VertexWrappers.Add(new ColouredPlaceWrapper(this, e.Vertex as ColouredPlace) { Coords = last.Coords, SizeF = DefaultPlaceSize });
-            }
-            VertexWrappers.Remove(last);
         }
 
         public override void EditGraph()
@@ -69,6 +91,9 @@ namespace Petri_Net_Editor.App.Models.Wrappers
 
             (graphWrapper as PetriNetGraphWrapper).DefaultPlaceSize = this.DefaultPlaceSize;
             (graphWrapper as PetriNetGraphWrapper).DefaultTransitionSize = this.DefaultTransitionSize;
+            (graphWrapper as ColouredPetriGraphWrapper).ColorsDescription = new List<Tuple<string, string, string>>(this.ColorsDescription);
+            (graphWrapper as ColouredPetriGraphWrapper).VariablesDescription = new List<Tuple<string, string>>(this.VariablesDescription);
+            (graphWrapper as ColouredPetriGraphWrapper).FunctionsDescription = new List<string>(this.FunctionsDescription);
 
             ColouredPetriGraphWrapper.SetDefaultEventHandlers(graphWrapper as ColouredPetriGraphWrapper);
         }
