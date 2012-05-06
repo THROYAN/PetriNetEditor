@@ -24,7 +24,7 @@ namespace Petri_Net_Editor.App.Models.Wrappers
             vm.ShowDialog();
             if (vm.Succesful)
             {
-                vm.VertexWrapper.CopyTo(this);// as MagicLibrary.MathUtils.Graphs.Vertex;
+                vm.VertexWrapper.CopyTo(this);
             }
         }
 
@@ -34,17 +34,29 @@ namespace Petri_Net_Editor.App.Models.Wrappers
 
             var r = this.RectangleF;
 
-            var sText = g.MeasureString(this.ColouredPlace.InitFunction, new Font("Arial", 8));
-            g.FillRectangle(Brushes.Gray, r.Right, r.Top, sText.Width, sText.Height);
+            var sText = g.MeasureString(this.ColouredPlace.ColorSetName, new Font("Arial", 8));
+            g.FillRectangle(Brushes.Gray, r.Right, r.Top - sText.Height, sText.Width, sText.Height);
 
             g.DrawString(
-                this.ColouredPlace.InitFunction,
+                this.ColouredPlace.ColorSetName,
                 new Font("Arial", 8),
                 Brushes.Blue,
                 r.Right,
-                r.Top
+                r.Top - sText.Height
             );
-#warning Нарисовать токены позиции
+
+            var tokensString = this.ColouredPlace.Tokens.ToString();
+            var f = new Font("", 7);
+            sText = g.MeasureString(tokensString, f);
+
+            g.FillRectangle(Brushes.Green, r.Right, r.Bottom, sText.Width, sText.Height);
+            g.DrawString(
+                tokensString,
+                new Font("", 7),
+                Brushes.Black,
+                r.Right,
+                r.Bottom
+            );
         }
     }
 }
