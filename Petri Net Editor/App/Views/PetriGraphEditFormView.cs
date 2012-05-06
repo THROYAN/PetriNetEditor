@@ -50,7 +50,7 @@ namespace Petri_Net_Editor.App.Views
 
         void item_Click(object sender, EventArgs e)
         {
-            selectedGraph.action = GraphEditActions.AddVertex;
+            selectedGraph.action = GraphEditAction.AddVertex;
             selectedGraph.addTransition = true;
         }
     }

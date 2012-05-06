@@ -11,21 +11,29 @@ using GraphEditor.App.Models;
 using GraphEditor.App.Views;
 
 using MagicLibrary.MathUtils.Graphs;
+using MagicLibrary.MathUtils.PetriNetsUtils.Graphs;
+using MagicLibrary.MathUtils.PetriNetsUtils;
+using MagicLibrary.Exceptions;
+using Petri_Net_Editor.App.Models.Wrappers;
+using MagicLibrary.MathUtils.Functions;
 
 namespace Petri_Net_Editor.App.Views
 {
     public partial class ColouredPetriGraphConstructorForm : Form, IGraphConstructor
     {
+        private bool _isModified = false;
+
         public bool Succesful { get; set; }
         public int height;
         public WFGraphWrapper GraphWrapper { get; set; }
+        public ColouredPetriGraphWrapper wrapper { get { return this.GraphWrapper as ColouredPetriGraphWrapper; } }
 
         public ColouredPetriGraphConstructorForm(WFGraphWrapper graphWrapper)
         {
             InitializeComponent();
+            this._isModified = false;
             this.Succesful = false;
             GraphWrapper = graphWrapper.Clone() as WFGraphWrapper;
-            //graphWrapper.CopyTo(GraphWrapper);
             firstPartVerticesCounter.Value = (graphWrapper.Graph as BiGraph).FirstPartOrder;
             secondPartVerticesCount.Value = (graphWrapper.Graph as BiGraph).SecondPartOrder;
         }
@@ -33,7 +41,6 @@ namespace Petri_Net_Editor.App.Views
         private void GraphConstructorForm_Resize(object sender, EventArgs e)
         {
             incidentsGrid.Height = this.Height - height;
-            markingDataGridView.Width = this.ClientSize.Width;
         }
 
         private void GraphConstructorForm_Load(object sender, EventArgs e)
@@ -50,27 +57,6 @@ namespace Petri_Net_Editor.App.Views
             secondPartVerticesComboBox.Items.Clear();
             secondPartVerticesComboBox.Items.AddRange((GraphWrapper.Graph as BiGraph).SecondPartVerticesValues);
             secondPartVerticesComboBox.SelectedIndex = secondPartVerticesComboBox.Items.Count - 1;
-
-            //incidentsGrid.Columns.Clear();
-            //incidentsGrid.Rows.Clear();
-
-            //if (GraphWrapper.VertexWrappers.Count == 0)
-            //    return;
-
-            //incidentsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //incidentsGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            //incidentsGrid.TopLeftHeaderCell.Value ="\\";
-            //incidentsGrid.ShowEditingIcon = false;
-            //int i = 0;
-            //GraphWrapper.VertexWrappers.ForEach(delegate(IVertexWrapper v)
-            //    {
-            //        incidentsGrid.Columns.Add("", v.Name);
-            //        incidentsGrid.Rows.Add(new DataGridViewRow() { HeaderCell = new DataGridViewRowHeaderCell() { Value = v.Name } });
-            //        //incidentsGrid[0, i++].Value = v.Name;
-            //    }
-            //);
-
-            //MessageBox.Show(GraphWrapper.Graph.IncidentsMatrixTopHeaders.Length.ToString());
 
             LoadDataToGrid(
                 incidentsGrid,
@@ -120,12 +106,18 @@ namespace Petri_Net_Editor.App.Views
             //    RefreshValues();
             //    //vm.Vertex.CopyTo(out this.GraphWrapper[verticesComboBox.SelectedIndex].Vertex);
             //}
+            this._isModified = true;
             this.GraphWrapper[firstPartVerticesComboBox.SelectedItem.ToString()].EditVertex();
             this.RefreshValues();
         }
 
         private void GraphConstructorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (!this._isModified)
+            {
+                return;
+            }
+
             DialogResult d = MessageBox.Show("Сохранить изменения?", "Внимание!", MessageBoxButtons.YesNoCancel);
             if (d == System.Windows.Forms.DialogResult.Cancel)
                 e.Cancel = true;
@@ -172,10 +164,12 @@ namespace Petri_Net_Editor.App.Views
             }
             res = GraphWrapper[tailName, headName] == null ? 0 : GraphWrapper[tailName, headName].Weight;
             incidentsGrid[e.ColumnIndex, e.RowIndex].Value = res;
+            this._isModified = true;
         }
 
         private void fitstPartVerticesCounter_ValueChanged(object sender, EventArgs e)
         {
+            this._isModified = true;
             BiGraph graph = this.GraphWrapper.Graph as BiGraph;
             int newVerticesCount = Convert.ToInt32((sender as NumericUpDown).Value);
             int oldVerticesCount = graph.FirstPartOrder;
@@ -216,6 +210,7 @@ namespace Petri_Net_Editor.App.Views
 
         private void secondPardVerticesCount_ValueChanged(object sender, EventArgs e)
         {
+            this._isModified = true;
             BiGraph graph = this.GraphWrapper.Graph as BiGraph;
             int newVerticesCount = Convert.ToInt32((sender as NumericUpDown).Value);
             int oldVerticesCount = graph.SecondPartOrder;
@@ -241,7 +236,6 @@ namespace Petri_Net_Editor.App.Views
                     int c = graph.SecondPartOrder;
                     graph.AddVertexToSecondPart("T" + (c + 1));
                     this.GraphWrapper["T" + (c + 1)].Center = MagicLibrary.Graphic.MGraphic.T(GraphWrapper.DefaultVertexSize.Width, GraphWrapper.DefaultVertexSize.Height) * p;
-                    //GraphWrapper.AddVertex(MagicLibrary.Graphic.MGraphic.T(GraphWrapper.DefaultVertexSize.Width, GraphWrapper.DefaultVertexSize.Height) * p);
                 }
             }
             if (oldVerticesCount > newVerticesCount)
@@ -258,16 +252,42 @@ namespace Petri_Net_Editor.App.Views
         {
             if (secondPartVerticesComboBox.SelectedIndex == -1)
                 return;
-            //VertexModifyForm vm = new VertexModifyForm(this.GraphWrapper[secondPartVerticesComboBox.SelectedItem.ToString()].Vertex);
-            //vm.ShowDialog();
-            //if (vm.Succesful)
-            //{
-            //    this.GraphWrapper[secondPartVerticesComboBox.SelectedItem.ToString()].Vertex = vm.VertexWrapper.Clone() as MagicLibrary.MathUtils.Graphs.Vertex;
-            //    RefreshValues();
-            //    //vm.Vertex.CopyTo(out this.GraphWrapper[verticesComboBox.SelectedIndex].Vertex);
-            //}
+
             this.GraphWrapper[secondPartVerticesComboBox.SelectedItem.ToString()].EditVertex();
             this.RefreshValues();
+        }
+
+        private void colorsEditButton_Click(object sender, EventArgs e)
+        {
+            var f = new ColorsEditForm(this.wrapper.ColorsDescription, this.wrapper.VariablesDescription, this.wrapper.FunctionsDescription);
+            f.ShowDialog();
+
+            if (f.Succesful)
+            {
+                this._isModified = true;
+                this.wrapper.ColorsDescription = new List<Tuple<string, string, string>>(f.ColorsDescriptions);
+                this.wrapper.VariablesDescription = new List<Tuple<string, string>>(f.VarsDescriptions);
+                this.wrapper.FunctionsDescription = new List<string>(f.FunctionsDescriptions);
+                var cGraph = this.wrapper.Graph as ColouredPetriGraph;
+                cGraph.Colors.ClearColors();
+                cGraph.Colors.ClearFunctions();
+                Function.ResetMathFunctions();
+                
+                foreach (var color in f.Colors)
+                {
+                    cGraph.Colors.AddColorSet(color);
+                }
+
+                foreach (var var in f.Colors.ColorVariables)
+                {
+                    cGraph.Colors.AddVariable(var.Name, var.ColorSet.Name);
+                }
+
+                foreach (var func in f.Colors.FunctionsDescription)
+                {
+                    cGraph.Colors.AddFunction(func);
+                }
+            }
         }
     }
 }

@@ -76,7 +76,7 @@ namespace Petri_Net_Editor.App.Views
 
         void item21_Click(object sender, EventArgs e)
         {
-            selectedGraph.action = GraphEditor.App.Views.GraphEditActions.SomethingElse;
+            selectedGraph.action = GraphEditor.App.Views.GraphEditAction.SomethingElse;
             selectedGraph.executeState = PetriNetExecuteState.SelectTransition;
         }
 
@@ -87,7 +87,7 @@ namespace Petri_Net_Editor.App.Views
             string t = selectedGraph.InputWindow("Введите задержку анимации(ms):", "Запуск анимации:", count.ToString());
             try
             {
-                selectedGraph.action = GraphEditor.App.Views.GraphEditActions.SomethingElse;
+                selectedGraph.action = GraphEditor.App.Views.GraphEditAction.SomethingElse;
                 selectedGraph.executeState = PetriNetExecuteState.AutoExecute;
                 selectedGraph.StartTimer(Convert.ToInt32(t), Convert.ToInt32(c));
             }
@@ -106,14 +106,14 @@ namespace Petri_Net_Editor.App.Views
         void item2_Click(object sender, EventArgs e)
         {
             selectedGraph.marks = 0;
-            selectedGraph.action = GraphEditor.App.Views.GraphEditActions.SomethingElse;
+            selectedGraph.action = GraphEditor.App.Views.GraphEditAction.SomethingElse;
             selectedGraph.executeState = PetriNetExecuteState.EditGraph;
         }
 
         void item1_Click(object sender, EventArgs e)
         {
             selectedGraph.marks = +1;
-            selectedGraph.action = GraphEditor.App.Views.GraphEditActions.SomethingElse;
+            selectedGraph.action = GraphEditor.App.Views.GraphEditAction.SomethingElse;
             selectedGraph.executeState = PetriNetExecuteState.EditGraph;
         }
 
@@ -133,5 +133,4 @@ namespace Petri_Net_Editor.App.Views
             }
         }
     }
-    public enum PetriNetExecuteState { SelectTransition, RandomTransition, AutoExecute, EditGraph };
 }

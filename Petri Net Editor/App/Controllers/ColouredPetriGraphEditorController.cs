@@ -17,46 +17,29 @@ using MagicLibrary.MathUtils.PetriNetsUtils;
 
 namespace Petri_Net_Editor.App.Controllers
 {
-    public class MarkedPetriGraphEditorController : PetriGraphEditorController
+    public class ColouredPetriGraphEditorController : PetriGraphEditorController
     {
-        public MarkedPetriGraphEditorController(MarkedPetriNetGraphEditView view, string name)
+        public ColouredPetriGraphEditorController(ColouredPetriNetGraphEditView view, string name)
             : base(view,name)
         {
             View = view;
         }
 
-        public MarkedPetriNetGraphEditView geView { get { return View as MarkedPetriNetGraphEditView; } }
-
-        public void ChangeMarks(PointF coords, uint delta)
-        {
-            GraphEditor.App.Models.IVertexWrapper vw = GetSelectedVertex(coords);
-            if (vw == null)
-                return;
-            IVertex v = vw.Vertex;
-            if (v is MarkedPlace)
-            {
-#warning !!!!!!!!!!!!!!!!!!!!!!!!!
-                //(v as MarkedPlace).SetTokenCount(delta);
-            }
-        }
+        public ColouredPetriNetGraphEditView geView { get { return View as ColouredPetriNetGraphEditView; } }
 
         public new void ViewLoad()
         {
             base.ViewLoad();
-            geView.graphWrapper = new MarkedPetriGraphWrapper() { DefaultTransitionSize = new Size(2, 20) };
-            geView.petriNet = new PetriNet(geView.graphWrapper.Graph as MarkedPetriGraph);
+            geView.graphWrapper = new ColouredPetriGraphWrapper() { DefaultTransitionSize = new Size(2, 20) };
+            geView.petriNet = new ColouredPetriNet(geView.graphWrapper.Graph as ColouredPetriGraph);
         }
 
         public override void DoSomethingElse(PointF coords)
         {
-            if (geView.executeState == PetriNetExecuteState.EditGraph)
-            {
-                ChangeMarks(coords, geView.marks);
-            }
             if (geView.executeState == PetriNetExecuteState.SelectTransition)
             {
                 if (geView.selectionVertexIndex != -1)
-                    (geView.graphWrapper[geView.selectionVertexIndex].Vertex as MarkedTransition).Execute();
+                    (geView.graphWrapper[geView.selectionVertexIndex].Vertex as ColouredTransition).Execute();
             }
         }
 
@@ -73,9 +56,9 @@ namespace Petri_Net_Editor.App.Controllers
             int temp = geView.selectionVertexIndex;
             GraphEditor.App.Models.IVertexWrapper tempWrapper = GetSelectedVertex(coords);
             IVertex selected = tempWrapper != null ? tempWrapper.Vertex : null;
-            if (selected is MarkedTransition)
+            if (selected is ColouredTransition)
             {
-                if ((selected as MarkedTransition).IsAvailable())
+                if ((selected as ColouredTransition).IsAvailable())
                     geView.selectionVertexIndex = geView.petriGraph.Graph.GetVertices().IndexOf(selected);
             }
             else
@@ -91,7 +74,8 @@ namespace Petri_Net_Editor.App.Controllers
         public override bool OpenGraph(string path)
         {
             var f = base.OpenGraph(path);
-            geView.petriNet = new PetriNet(geView.graphWrapper.Graph as MarkedPetriGraph);
+            geView.petriNet = new ColouredPetriNet(geView.graphWrapper.Graph as ColouredPetriGraph);
+            (geView.graphWrapper.Graph as ColouredPetriGraph).Colors.RegisterAllFunctions();
             return f;
         }
     }

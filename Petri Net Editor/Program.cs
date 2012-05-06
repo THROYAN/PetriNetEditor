@@ -17,7 +17,7 @@ namespace Petri_Net_Editor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MarkedPetriGraphEditFormView());
+            Application.Run(new ColouredPetriGraphEditFormView());
         }
     }
 }

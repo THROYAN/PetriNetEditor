@@ -140,6 +140,7 @@
             this.placeInitFunctionTextBox.Location = new System.Drawing.Point(209, 79);
             this.placeInitFunctionTextBox.Multiline = true;
             this.placeInitFunctionTextBox.Name = "placeInitFunctionTextBox";
+            this.placeInitFunctionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.placeInitFunctionTextBox.Size = new System.Drawing.Size(171, 67);
             this.placeInitFunctionTextBox.TabIndex = 4;
             // 

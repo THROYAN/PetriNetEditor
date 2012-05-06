@@ -76,29 +76,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Controllers\ColouredPetriGraphEditorController.cs" />
+    <Compile Include="App\Controllers\ColouredPetriNetEditFormController.cs" />
     <Compile Include="App\Controllers\MarkedPetriGraphEditorController.cs" />
     <Compile Include="App\Controllers\MarkedPetriNetEditFormController.cs" />
     <Compile Include="App\Controllers\PetriGraphEditorController.cs" />
     <Compile Include="App\Controllers\PetriNetGraphEditFormController.cs" />
+    <Compile Include="App\Models\Wrappers\ColouredArcWrapper.cs" />
     <Compile Include="App\Models\Wrappers\ColouredPetriGraphWrapper.cs" />
     <Compile Include="App\Models\Wrappers\ColouredPlaceWrapper.cs" />
-    <Compile Include="App\Models\Wrappers\MarkedPetriNetGraphWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\ColouredTransitionWrapper.cs" />
+    <Compile Include="App\Models\Wrappers\MarkedPetriGraphWrapper.cs" />
     <Compile Include="App\Models\Wrappers\PetriNetGraphWrapper.cs" />
     <Compile Include="App\Models\Wrappers\MarkedPlaceWrapper.cs" />
     <Compile Include="App\Models\Wrappers\PlaceWrapper.cs" />
     <Compile Include="App\Models\Wrappers\TransitionWrapper.cs" />
-    <Compile Include="App\Views\ColouredPlaceModifyForm.cs">
+    <Compile Include="App\Views\Coloured\ColouredArcModifyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="App\Views\ColouredPlaceModifyForm.Designer.cs">
+    <Compile Include="App\Views\Coloured\ColouredArcModifyForm.Designer.cs">
+      <DependentUpon>ColouredArcModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColorsEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColorsEditForm.Designer.cs">
+      <DependentUpon>ColorsEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColouredPlaceModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColouredPlaceModifyForm.Designer.cs">
       <DependentUpon>ColouredPlaceModifyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="App\Views\ColouredPetriGraphCounstructorForm.cs">
+    <Compile Include="App\Views\Coloured\ColouredPetriGraphCounstructorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="App\Views\ColouredPetriGraphCounstructorForm.Designer.cs">
+    <Compile Include="App\Views\Coloured\ColouredPetriGraphCounstructorForm.Designer.cs">
       <DependentUpon>ColouredPetriGraphCounstructorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\Views\Coloured\ColouredTransitionModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColouredTransitionModifyForm.Designer.cs">
+      <DependentUpon>ColouredTransitionModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColouredPetriGraphEditFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ColouredPetriNetGraphEditView.cs" />
     <Compile Include="App\Views\MarkedPetriNetGraphCounstructorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +135,24 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="App\Views\MarkedPetriNetGraphEditView.cs" />
+    <Compile Include="App\Views\Coloured\ModifyColorSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ModifyColorSetForm.Designer.cs">
+      <DependentUpon>ModifyColorSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ModifyFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ModifyFunctionForm.Designer.cs">
+      <DependentUpon>ModifyFunctionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ModifyVariableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Views\Coloured\ModifyVariableForm.Designer.cs">
+      <DependentUpon>ModifyVariableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\Views\PetriGraphEditFormView.designer.cs">
       <DependentUpon>PetriGraphEditFormView.cs</DependentUpon>
     </Compile>
@@ -130,17 +174,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="App\Views\ColouredPlaceModifyForm.resx">
+    <EmbeddedResource Include="App\Views\Coloured\ColouredArcModifyForm.resx">
+      <DependentUpon>ColouredArcModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ColorsEditForm.resx">
+      <DependentUpon>ColorsEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ColouredPlaceModifyForm.resx">
       <DependentUpon>ColouredPlaceModifyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="App\Views\ColouredPetriGraphCounstructorForm.resx">
+    <EmbeddedResource Include="App\Views\Coloured\ColouredPetriGraphCounstructorForm.resx">
       <DependentUpon>ColouredPetriGraphCounstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ColouredTransitionModifyForm.resx">
+      <DependentUpon>ColouredTransitionModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ColouredPetriGraphEditFormView.resx">
+      <DependentUpon>ColouredPetriGraphEditFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Views\MarkedPetriNetGraphCounstructorForm.resx">
       <DependentUpon>MarkedPetriNetGraphCounstructorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Views\MarkedPetriGraphEditFormView.resx">
       <DependentUpon>MarkedPetriGraphEditFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ModifyColorSetForm.resx">
+      <DependentUpon>ModifyColorSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ModifyFunctionForm.resx">
+      <DependentUpon>ModifyFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Views\Coloured\ModifyVariableForm.resx">
+      <DependentUpon>ModifyVariableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Views\PetriGraphEditFormView.resx">
       <DependentUpon>PetriGraphEditFormView.cs</DependentUpon>
@@ -159,7 +224,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -204,6 +271,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\todo.txt" />
+    <None Include="Resources\1336228806_preferences-desktop-color1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

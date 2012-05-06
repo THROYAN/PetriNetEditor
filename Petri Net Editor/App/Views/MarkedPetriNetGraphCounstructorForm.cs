@@ -51,27 +51,6 @@ namespace Petri_Net_Editor.App.Views
             secondPartVerticesComboBox.Items.AddRange((GraphWrapper.Graph as BiGraph).SecondPartVerticesValues);
             secondPartVerticesComboBox.SelectedIndex = secondPartVerticesComboBox.Items.Count - 1;
 
-            //incidentsGrid.Columns.Clear();
-            //incidentsGrid.Rows.Clear();
-
-            //if (GraphWrapper.VertexWrappers.Count == 0)
-            //    return;
-
-            //incidentsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //incidentsGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            //incidentsGrid.TopLeftHeaderCell.Value ="\\";
-            //incidentsGrid.ShowEditingIcon = false;
-            //int i = 0;
-            //GraphWrapper.VertexWrappers.ForEach(delegate(IVertexWrapper v)
-            //    {
-            //        incidentsGrid.Columns.Add("", v.Name);
-            //        incidentsGrid.Rows.Add(new DataGridViewRow() { HeaderCell = new DataGridViewRowHeaderCell() { Value = v.Name } });
-            //        //incidentsGrid[0, i++].Value = v.Name;
-            //    }
-            //);
-
-            //MessageBox.Show(GraphWrapper.Graph.IncidentsMatrixTopHeaders.Length.ToString());
-
             LoadDataToGrid(
                 incidentsGrid,
                 GraphWrapper.Graph.IncidentsMatrixTopHeaders,
@@ -112,14 +91,7 @@ namespace Petri_Net_Editor.App.Views
         {
             if (firstPartVerticesComboBox.SelectedIndex == -1)
                 return;
-            //VertexModifyForm vm = new VertexModifyForm(this.GraphWrapper[firstPartVerticesComboBox.SelectedItem.ToString()].Vertex);
-            //vm.ShowDialog();
-            //if (vm.Succesful)
-            //{
-            //    this.GraphWrapper[firstPartVerticesComboBox.SelectedItem.ToString()].Vertex = vm.VertexWrapper.Clone() as MagicLibrary.MathUtils.Graphs.Vertex;
-            //    RefreshValues();
-            //    //vm.Vertex.CopyTo(out this.GraphWrapper[verticesComboBox.SelectedIndex].Vertex);
-            //}
+            
             this.GraphWrapper[firstPartVerticesComboBox.SelectedItem.ToString()].EditVertex();
             this.RefreshValues();
         }
@@ -201,7 +173,6 @@ namespace Petri_Net_Editor.App.Views
                     int c = graph.FirstPartOrder;
                     graph.AddVertexToFirstPart("F" + (c + 1));
                     this.GraphWrapper["F" + (c + 1)].Center = MagicLibrary.Graphic.MGraphic.T(GraphWrapper.DefaultVertexSize.Width, GraphWrapper.DefaultVertexSize.Height) * p;
-                    //GraphWrapper.AddVertex(MagicLibrary.Graphic.MGraphic.T(GraphWrapper.DefaultVertexSize.Width, GraphWrapper.DefaultVertexSize.Height) * p);
                 }
             }
             if (oldVerticesCount > newVerticesCount)
@@ -258,14 +229,7 @@ namespace Petri_Net_Editor.App.Views
         {
             if (secondPartVerticesComboBox.SelectedIndex == -1)
                 return;
-            //VertexModifyForm vm = new VertexModifyForm(this.GraphWrapper[secondPartVerticesComboBox.SelectedItem.ToString()].Vertex);
-            //vm.ShowDialog();
-            //if (vm.Succesful)
-            //{
-            //    this.GraphWrapper[secondPartVerticesComboBox.SelectedItem.ToString()].Vertex = vm.VertexWrapper.Clone() as MagicLibrary.MathUtils.Graphs.Vertex;
-            //    RefreshValues();
-            //    //vm.Vertex.CopyTo(out this.GraphWrapper[verticesComboBox.SelectedIndex].Vertex);
-            //}
+            
             this.GraphWrapper[secondPartVerticesComboBox.SelectedItem.ToString()].EditVertex();
             this.RefreshValues();
         }

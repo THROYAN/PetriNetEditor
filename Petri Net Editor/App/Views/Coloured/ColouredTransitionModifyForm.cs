@@ -8,26 +8,17 @@ using System.Text;
 using System.Windows.Forms;
 
 using GraphEditor.App.Models;
-
 using Petri_Net_Editor.App.Models.Wrappers;
-using Petri_Net_Editor.App.Models;
-
-using MagicLibrary.MathUtils.PetriNetsUtils.Graphs;
 
 namespace Petri_Net_Editor.App.Views
 {
-    public partial class ColouredPlaceModifyForm : Form
+    public partial class ColouredTransitionModifyForm : Form
     {
-        public int ValidatedItems = 5;
         public bool Succesful = false;
-        private string startName;
         public IVertexWrapper VertexWrapper { get; set; }
-        private ColouredPlace place { get { return this.VertexWrapper.Vertex as ColouredPlace; } }
-
-        public ColouredPlaceModifyForm(IVertexWrapper vertexWrapper)
+        public ColouredTransitionModifyForm(IVertexWrapper vertexWrapper)
         {
             this.VertexWrapper = vertexWrapper.Clone() as IVertexWrapper;
-            this.startName = VertexWrapper.Name;
 
             InitializeComponent();
         }
@@ -37,8 +28,7 @@ namespace Petri_Net_Editor.App.Views
             vertexNameTextBox.Text = VertexWrapper.Name;
             xTextBox.Text = (VertexWrapper as WFVertexWrapper).Coords.X.ToString();
             yTextBox.Text = (VertexWrapper as WFVertexWrapper).Coords.Y.ToString();
-            placeColorTextBox.Text = this.place.ColorSetName;
-            placeInitFunctionTextBox.Text = this.place.InitFunction;
+            angleUpDown.Value = Convert.ToDecimal(((VertexWrapper as ColouredTransitionWrapper).Angle % 360 + 360) % 360);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -61,36 +51,10 @@ namespace Petri_Net_Editor.App.Views
             }
 
             (VertexWrapper as WFVertexWrapper).Coords = new PointF(x, y);
-            this.place.ColorSetName = this.placeColorTextBox.Text;
-            this.place.InitFunction = this.placeInitFunctionTextBox.Text;
+            (VertexWrapper as ColouredTransitionWrapper).Angle = Convert.ToDouble(angleUpDown.Value);
 
             Succesful = true;
             Close();
         }
-
-        private void vertexNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (!this.startName.Equals(vertexNameTextBox.Text)
-                && VertexWrapper.graphWrapper.Graph[vertexNameTextBox.Text] != null)
-            {
-                vertexNameTextBox.BackColor = Color.Red;
-            }
-            else
-            {
-                vertexNameTextBox.BackColor = SystemColors.Window;
-            }
-        }
-
-        private void placeColorTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (!this.place.IsLegalColor())
-            {
-                placeColorTextBox.BackColor = Color.Red;
-            }
-            else
-            {
-                placeColorTextBox.BackColor = SystemColors.Window;
-            }
-        }
-   } 
+    }
 }

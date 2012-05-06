@@ -42,13 +42,14 @@ namespace Petri_Net_Editor.App.Models.Wrappers
             if (e.Status == ModificationStatus.Successful)
             {
                 WFVertexWrapper last = VertexWrappers.Last() as WFVertexWrapper;
-                if (e.Vertex is Transition)
-                {
-                    VertexWrappers.Add(new TransitionWrapper(this, e.Vertex as Transition) { Coords = last.Coords, SizeF = DefaultTransitionSize });
-                }
-                if(e.Vertex is Place)
+
+                if (e.Vertex is Place)
                 {
                     VertexWrappers.Add(new PlaceWrapper(this, e.Vertex as Place) { Coords = last.Coords, SizeF = DefaultPlaceSize });
+                }
+                else
+                {
+                    VertexWrappers.Add(new TransitionWrapper(this, e.Vertex as Transition) { Coords = last.Coords, SizeF = DefaultTransitionSize });
                 }
                 VertexWrappers.Remove(last);
             }

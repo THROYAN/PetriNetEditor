@@ -14,25 +14,25 @@ using MagicLibrary.MathUtils.PetriNetsUtils;
 
 namespace Petri_Net_Editor.App.Views
 {
-    public class MarkedPetriNetGraphEditView : PetriNetGraphEditView
+    public class ColouredPetriNetGraphEditView : PetriNetGraphEditView
     {
         public PetriNetExecuteState executeState { get; set; }
-        public PetriNet petriNet { get; set; }
+        public ColouredPetriNet petriNet { get; set; }
 
         public uint marks { get; set; }
-        public MarkedPetriGraphWrapper mPetriGraph { get { return graphWrapper as MarkedPetriGraphWrapper; } }
-        public new MarkedPetriGraphEditorController MainController { get { return GetController("MainController") as MarkedPetriGraphEditorController; } }
+        public ColouredPetriGraphWrapper mPetriGraph { get { return graphWrapper as ColouredPetriGraphWrapper; } }
+        public new ColouredPetriGraphEditorController MainController { get { return GetController("MainController") as ColouredPetriGraphEditorController; } }
         public Timer timer { get; set; }
         public int itterator { get; set; }
         public int count { get; set; }
 
-        public MarkedPetriNetGraphEditView(Control control)
+        public ColouredPetriNetGraphEditView(Control control)
             : base(control)
         {
             timer = new Timer();
             timer.Tick += new EventHandler(timer_Tick);
             Controllers.RemoveAll(controller => controller.Name == "MainController");
-            Controllers.Add(new MarkedPetriGraphEditorController(this, "MainController"));
+            Controllers.Add(new ColouredPetriGraphEditorController(this, "MainController"));
             MainController.ViewLoad();
             Control.Paint += new PaintEventHandler(Control_Paint);
         }
